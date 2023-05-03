@@ -1,4 +1,4 @@
 # P2_30039073
 Para la asignación 1 de Programación 2
 
-https://server-nodejs-typescript-render.onrender.com/
+https://programacion-ii-asignacion-1.onrender.com/
