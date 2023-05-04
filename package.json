@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Paquetes necesarios",
   "main": "main.js",
-  "scripts": {    
-    "dev": "nodemon --exec ./node_modules/.bin/ts-node src/main",
-    "start": "node app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "node --watch ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +20,12 @@
   "homepage": "https://github.com/Markyuni/P2_30039073#readme",
   "dependencies": {
     "constantinople": "^4.0.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "pug": "^3.0.2"
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "sqlite3": "^5.1.6"
   }
 }
