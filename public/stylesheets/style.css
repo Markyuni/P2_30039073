@@ -8,6 +8,18 @@ body {
   padding: 50px;
 }
 
+button {
+  background-color: #142b4f;
+  border: none;
+  border-radius: 10px;
+  color: #E8E8ED;
+  font: 32px Century Gothic;
+  font-weight: bold;
+  margin: 30px 45% 0px;
+  text-align: center;
+  padding: 12px;
+}
+
 a:link, a:visited {
   background-color: #E8E8ED;
   border-radius: 10px;
@@ -22,11 +34,6 @@ a:link, a:visited {
 img {
   border-top-right-radius: 25%;
 }
-
-hr {
-  width: 90%;
-}
-
 .split {
   height: 100%;
   width: 47%;
