@@ -6,3 +6,7 @@ https://programacion-ii-asignacion-1.onrender.com/
 Para la evaluación 1 de Programación 2
 
 https://programacion-ii-evaluacion-1.onrender.com/
+
+Para la evaluación 2 de Programación 2
+
+https://programacion-ii-evaluacion-2.onrender.com/
