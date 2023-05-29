@@ -22,9 +22,9 @@ router.post('/', function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  axios.get(`http://ip-api.com/json/186.92.134.244?fields=country`).then((res) => {
+  // axios.get(`http://ip-api.com/json/186.92.134.244?fields=country`).then((res) => {
 
-  // axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {
+  axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {
     const pais = res.data.country;
 
     console.log({ name, email, comment, date, myIP, pais });
