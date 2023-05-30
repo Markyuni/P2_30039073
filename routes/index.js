@@ -1,4 +1,5 @@
 var express = require('express');
+const config = require('../config');
 const db = require('../database');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
@@ -31,34 +32,34 @@ router.post('/', function(req, res, next) {
     console.log({ name, email, comment, date, myIP, pais });
 
     db.insert(name, email, comment, date, myIP, pais);
+
+    const transporter = nodemailer.createTransport({
+      host: config.HOST,
+      port: config.PORT,
+      secure: config.SECURE,
+      auth: {
+        user: config.AUTH_USER_FROM,
+        pass: config.AUTH_PASS
+      }
+    });
+
+    const mailOptions = {
+      from: config.AUTH_USER_FROM,
+      to: config.TO,
+      subject: config.SUBJECT,
+      text: config.TEXT
+    }
+
+    transporter.sendMail(mailOptions, function(error,info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Correo enviado: ' + info.response);
+      }
+    });
   }).catch((error)=>{
     console.log(error)
   })
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.hostinger.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: 'test009@arodu.dev',
-    pass: 'eMail.test009'
-  }
-});
-
-const mailOptions = {
-  from: 'test009@arodu.dev',
-  to: 'jesusorlandoramirezsierra@yahoo.com.ve',
-  subject: 'Envío de datos',
-  text: 'Datos de formulario: ' + 'Nombre: ' name ', ' + 'Correo: ' email ', ' + 'Comentario: ' comment ', ' + 'Fecha: ' date ', ' + 'IP: ' myIP ', ' + 'Pais: ' pais '.';
-}
-
-transporter.sendMail(mailOptions, function(error,info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Correo enviado: ' + info.response);
-  }
-});
 
   res.redirect('/');
 });
