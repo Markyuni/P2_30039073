@@ -49,7 +49,7 @@ const mailOptions = {
   from: 'test009@arodu.dev',
   to: 'jesusorlandoramirezsierra@yahoo.com.ve',
   subject: 'Envío de datos',
-  text: 'Datos de formulario: ' + 'Nombre: ' name ', ' + 'Correo: ' email ', ' + 'Comentario: ' comment ', ' + 'Fecha: ' date ', ' + 'IP: ' myIP ', ' + 'Pais: ' pais '.'
+  text: 'Datos de formulario: ' + 'Nombre: ' name ', ' + 'Correo: ' email ', ' + 'Comentario: ' comment ', ' + 'Fecha: ' date ', ' + 'IP: ' myIP ', ' + 'Pais: ' pais '.';
 }
 
 transporter.sendMail(mailOptions, function(error,info){
