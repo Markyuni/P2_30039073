@@ -50,8 +50,6 @@ router.post('/', function(req, res, next) {
       text: 'Datos de formulario:\nCorreo: ' + email + '\nNombre: ' + name + '\nComentario: ' + comment + '\nFecha: ' + date + '\nIP: ' + myIP + '\nPaís: ' + pais
     }
 
-    console.log(text);
-
     transporter.sendMail(mailOptions, function(error,info){
       if (error) {
         console.log(error);
