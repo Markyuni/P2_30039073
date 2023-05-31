@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  // axios.get(`http://ip-api.com/json/186.92.134.244?fields=country`).then((res) => { /* local */
+  //axios.get(`http://ip-api.com/json/186.92.35.41?fields=country`).then((res) => { /* local */
 
   axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                    /* render */
     const pais = res.data.country;
@@ -35,8 +35,8 @@ router.post('/', function(req, res, next) {
 
     const transporter = nodemailer.createTransport({
       host: config.HOST,
-      port: config.PORT,
-      secure: config.SECURE,
+      port: 465
+      secure: true,
       auth: {
         user: config.AUTH_USER_FROM,
         pass: config.AUTH_PASS
