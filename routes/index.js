@@ -24,9 +24,9 @@ router.post('/', function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  // axios.get(`http://ip-api.com/json/186.92.134.244?fields=country`).then((res) => { /* local */
+  axios.get(`http://ip-api.com/json/186.92.134.244?fields=country`).then((res) => { /* local */
 
-  axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                    /* render */
+  // axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                    /* render */
     const pais = res.data.country;
 
     console.log({ name, email, comment, date, myIP, pais });
@@ -47,8 +47,10 @@ router.post('/', function(req, res, next) {
       from: config.AUTH_USER_FROM,
       to: config.TO,
       subject: config.SUBJECT,
-      text: config.TEXT
+      text: 'Datos de formulario:\nCorreo: ' + email + '\nNombre: ' + name + '\nComentario: ' + comment + '\nFecha: ' + date + '\nIP: ' + myIP + '\nPaís: ' + pais
     }
+
+    console.log(text);
 
     transporter.sendMail(mailOptions, function(error,info){
       if (error) {
