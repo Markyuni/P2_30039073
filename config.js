@@ -3,7 +3,7 @@ module.exports = {
 	HOST: process.env.HOST || 'smtp.hostinger.com',
 	PORT: process.env.PORT || 465,
 	SECURE: process.env.SECURE || true,
-	AUTH_USER_FROM: process.env.AUTH_USER_ || 'test009@arodu.dev',
+	AUTH_USER_FROM: process.env.AUTH_USER_FROM || 'test009@arodu.dev',
 	AUTH_PASS: process.env.AUTH_PASS || 'eMail.test009',
 	TO: process.env.TO || 'jesusorlandoramirezsierra@yahoo.com.ve',
 	SUBJECT: process.env.SUBJECT || 'Envío de datos',
