@@ -3,9 +3,12 @@ var createError = require('http-errors');
 var express = require('express');
 var logger = require('morgan');
 var path = require('path');
+var { promisify } = require('util');
+var request = promisify(require('request'));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
+var config = require('./config');
 
 var app = express();
 
@@ -37,6 +40,16 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.post("/post", async (req, res) => {
+  const name = req.body.name;
+  const response_key = req.body["g-recaptcha-response"];
+  const secret_key = config.PRIVATE_KEY;
+  const options = {
+    url: `https://www.google.com/recaptcha/api/siteverify?secret=${config.PRIVATE_KEY}&response=${response_key}`,
+    headers: { "Content-Type": "application/x-www-form-urlencoded", 'json': true }
+  }
 });
 
 module.exports = app;
