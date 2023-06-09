@@ -5,6 +5,10 @@ const axios = require('axios');
 const nodemailer = require('nodemailer');
 var router = express.Router();
 
+router.get('/login', function(req, res, next) {
+    res.render('login');
+})
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
@@ -14,10 +18,6 @@ router.get('/', function(req, res, next) {
     seccion: '1'
   });
 });
-
-router.get('/login', function(req, res, next) {
-    res.render('login');
-})
 
 router.post('/', function(req, res, next) {
   let name = req.body.name;
