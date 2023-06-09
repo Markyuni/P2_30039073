@@ -35,10 +35,6 @@ img {
 	border-top-right-radius: 25%;
 }
 
-input {
-	margin-right: 38px;
-}
-
 input, textarea {
 	background-color: #15181c;
 	border: 1px #15181c solid;
@@ -51,7 +47,7 @@ input, textarea {
 textarea {
 	resize: none;
     overflow: hidden;
-    min-height: 32px;
+    max-height: 16px;
 }
 
 .split {
@@ -90,12 +86,12 @@ textarea {
 
 .form-izquierda {
 	float: left;
-	width: 50%;
+	width: 48%;
 }
 
 .form-derecha {
 	float: right;
-	width: 50%;
+	width: 48%;
 }
 
 #informacion-personal p, #sitios-web p, #habilidades p {
@@ -130,6 +126,16 @@ textarea {
 }
 
 #form {
+	background-color: #E8E8ED;
+	border-radius: 10px;
+	color: #142b4f;
+	display: block;
+	font-weight: bold;
+	margin-top: 50px;
+	padding: 30px 50px;
+}
+
+#inicio {
 	background-color: #E8E8ED;
 	border-radius: 10px;
 	color: #142b4f;

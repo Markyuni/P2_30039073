@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPYBK9NS3S"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-RPYBK9NS3S');
+	</script>
+	<title>
+		Entrada al Sitio
+	</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/signup style.css">
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+	<div id="inicio">
+		<h2>
+			Inicio
+		</h2>
+		<hr>
+		<form action="/" method="post">
+			<div id="inicio-usuario">
+				<label for="name">Usuario</label>
+				<input type="text" name="name" id="name">
+			</div>
+			<div id="inicio-correo">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+			</div>
+			<div id="inicio-password">
+				<label for="pwd">Contraseña</label>
+				<input type="password" id="pwd" name="pwd">
+			</div>
+			<button type="submit">Enviar</button>
+		</form>
+	</div>
+</body>
+</html>
