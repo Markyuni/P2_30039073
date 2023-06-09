@@ -15,6 +15,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/login', function(req, res, next) {
+    res.render('login');
+})
+
 router.post('/', function(req, res, next) {
   let name = req.body.name;
   let email = req.body.email;
@@ -24,9 +28,9 @@ router.post('/', function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  //axios.get(`http://ip-api.com/json/186.92.35.41?fields=country`).then((res) => { /* local */
+  axios.get(`http://ip-api.com/json/186.92.93.151?fields=country`).then((res) => { /* local */
 
-  axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                    /* render */
+  // axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                    /* render */
     const pais = res.data.country;
 
     console.log({ name, email, comment, date, myIP, pais });
