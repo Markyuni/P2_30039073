@@ -33,7 +33,7 @@ module.exports = {
 }
 
 /* Base de datos para el login */
-let db = new sqlite3.Database(':memory:', (err) => {
+let db2 = new sqlite3.Database(':memory:', (err) => {
     if (err) {
         return console.error(err.message);
     }
