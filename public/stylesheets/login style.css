@@ -21,14 +21,8 @@ button {
 }
 
 a:link, a:visited {
-	background-color: #E8E8ED;
-	border-radius: 10px;
 	color: #142b4f;
-	display: inline-block;
-	font-weight: bold;
-	min-width: 70%;
-	padding: 20px 30px;
-	text-decoration: none;
+	font-weight: normal;
 }
 
 input, textarea {
@@ -38,6 +32,10 @@ input, textarea {
 	float: right;
 	font: 14px Century Gothic;
 	min-width: 75%;
+}
+
+p {
+	text-align: center;
 }
 
 textarea {

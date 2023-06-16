@@ -12,17 +12,17 @@
 	  gtag('config', 'G-RPYBK9NS3S');
 	</script>
 	<title>
-		Registro de contactos
+		Entrada al Sitio
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Propiedades de Open Graph Protocol -->
-	<meta property="og:title" content='Ingreso al sitio web'>
-	<meta property="og:type" content='Ingreso'>
+	<meta property="og:title" content='Registro de contactos'>
+	<meta property="og:type" content='Contactos'>
 	<meta property="og:url" content='https://programacion-ii-evaluacion-4.onrender.com'>
 	<meta property="og:site_name" content='irrelevante'>
-	<meta property="og:description" content='Aqui es donde se ingresa al sitio.'>
+	<meta property="og:description" content='Aqui se encuentran los contactos del sitio.'>
 
 	<link rel="stylesheet" type="text/css" href="/stylesheets/login style.css">
 
@@ -35,7 +35,7 @@
 		<h2>
 			Inicio
 		</h2>
-		<p>Curriculum Vitae: <a target="_blank" href="/index">Entrar</a></p>
+		<p>Curriculum Vitae: <a target="_blank" href="/views/index.html">Entrar</a></p>
 		<hr>
 		<form action="/" method="post">
 			<div id="inicio-usuario">
@@ -55,22 +55,6 @@
 	    		<div class="g-recaptcha" data-sitekey="6LeMHU0mAAAAAAb2q9ep7rKxwer-ZeCUy6pqTNGE" style="display: inline-block;">
 				</div>
 			</div>
-			<!-- Google OAuth lado del cliente -->
-			<script src="https://accounts.google.com/gsi/client" async defer></script>
-			<div
-				id="g_id_onload"
-				data-client_id="285900037668-n8el30v2p8oc0bkin85je3gn0e32fpvl.apps.googleusercontent.com"
-				data-login_uri="http://localhost:3000/contactos"
-				data-auto_prompt="false"
-			></div>
-			<div
-				class="g_id_signin"
-				data-type="standard"
-				data-size="large"
-				data-theme="outline"
-				data-text="sign_in_with"
-				data-shape="rectangular"
-			></div>
 			<button type="submit">Enviar</button>
 		</form>
 	</div>

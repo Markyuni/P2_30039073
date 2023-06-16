@@ -6,7 +6,6 @@ var og = require('open-graph');
 var path = require('path');
 
 var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var config = require('./config');
 
@@ -25,9 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/', loginRouter);
 app.use('/users', usersRouter);
-app.use('/contactos', usersRouter);
+app.use('/contacto', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,6 +47,7 @@ og = (url, function(err, meta) {
   console.log(meta);
 });
 
+// Autenticación reCAPTCHA del lado servidor
 app.post("/post", async (req, res) => {
   const name = req.body.name;
   const response_key = req.body["g-recaptcha-response"];

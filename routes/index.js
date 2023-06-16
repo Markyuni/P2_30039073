@@ -10,8 +10,13 @@ router.get('/', function(req, res, next) {
     res.render('login');
 });
 
+/* GET contacts page. */
+router.get('/contactos', function(req, res, next) {
+  res.render('contactos');
+});
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/index', function(req, res, next) {
   res.render('index', {
     title: 'Datos del Estudiante',
     nombre: 'Jesús', apellido: 'Ramírez',
