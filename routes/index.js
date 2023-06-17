@@ -25,7 +25,7 @@ router.get('/index', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', async function(req, res, next) {
   let name = req.body.name;
   let email = req.body.email;
   let comment = req.body.comment;
@@ -74,11 +74,12 @@ router.post('/', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/contactos', function(req, res, next) {
+router.post('/contactos', function(req, res, next) {
   db.select(function (rows) {
     console.log(rows);
   });
-  res.send('ok');
+
+  res.redirect('/contactos');
 });
 
 module.exports = router;
