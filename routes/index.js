@@ -5,19 +5,19 @@ const axios = require('axios');
 const nodemailer = require('nodemailer');
 var router = express.Router();
 
-// GET login page.
+// GET home page.
 router.get('/', function(req, res, next) {
-  res.render('login');
+  res.render('index');
 });
 
 // GET contacts page.
 router.get('/contactos', function(req, res, next) {
-  res.render('contactos');
+  res.render('contactos', {rows: rows});
 });
 
-/* GET home page. */
-router.get('/index', function(req, res, next) {
-  res.render('index');
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+  res.render('login');
 });
 
 router.post('/', async function(req, res, next) {
@@ -29,9 +29,9 @@ router.post('/', async function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  // axios.get(`http://ip-api.com/json/186.92.93.151?fields=country`).then((res) => { /* local */
+  axios.get(`http://ip-api.com/json/186.92.93.151?fields=country`).then((res) => { /* local */
 
-  axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                         /* render */
+  // axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                         /* render */
     const pais = res.data.country;
 
     console.log({ name, email, comment, date, myIP, pais });
@@ -66,15 +66,31 @@ router.post('/', async function(req, res, next) {
     console.log(error)
   })
 
-  res.redirect('/contact');
+  res.redirect('/login');
 });
 
-router.get('/contact', function(req, res, next) {
+router.post('/login', function(req, res, next) {
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.pwd;
+
+  console.log({ name, email, password });
+
+  if (name === config.FAKE_USER && email === config.FAKE_EMAIL && password === config.FAKE_PWD) {
+    db.select(function(rows) {
+      console.log(rows);
+      res.redirect('/contactos', {rows: rows});
+    })
+  } else {
+    res.redirect('/login');
+  };
+});
+
+router.post('/contactos', function(req, res, next) {
   db.select(function (rows) {
     console.log(rows);
-    console.log('Correo enviado')
+    res.redirect('contactos', {rows: rows});
   });
-  res.redirect('/');
 });
 
 module.exports = router;

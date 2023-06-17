@@ -32,24 +32,25 @@
 
 <body>
 	<p>comment here</p>
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nombre</th>
-				<th>Email</th>
-				<th>Comentario</th>
-				<th>Fecha</th>
-				<th>IP</th>
-				<th>País</th>
-			</tr>	
-		</thead>
-		<!-- La idea es meter los registros de la DB aqui -->
-		<tbody>
-			<tr>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
+	<h1>Historial de contactos desde el formulario</h1>
+	<% if (rows.length > 0) { %>
+	<ul>
+	    <% rows.forEach(row => { %>
+	    <li class="caja">
+	        <ul>
+	            <li><b>Id:</b> <%= row.id %></li>
+	            <li><b>Nombre:</b> <%= row.name %></li>
+	            <li><b>Email:</b> <%= row.email %></li>
+	            <li><b>Comentario:</b> <%= row.comment %></li>
+	            <li><b>Fecha:</b> <%= row.date %></li>
+	            <li><b>IP:</b> <%= row.myIP %></li>
+	            <li><b>Pais:</b> <%= row.pais %></li>
+	        </ul>
+	    </li>
+	    <% }) %>
+	</ul>
+	<% } else { %>
+	<p>No se han ingresado datos</p>
+	<% } %>
 </body>
 </html>

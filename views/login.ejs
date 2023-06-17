@@ -37,7 +37,7 @@
 		</h2>
 		<p>Curriculum Vitae: <a target="_blank" href="/index">Entrar</a></p>
 		<hr>
-		<form action="/contactos" method="post">
+		<form action="/login" method="post">
 			<div id="inicio-usuario">
 				<label for="name">Usuario</label>
 				<input type="text" name="name" id="name">
@@ -72,7 +72,17 @@
 				data-text="sign_in_with"
 				data-shape="rectangular"
 			></div>
-			<button type="submit">Enviar</button>
+			<button type="submit" onclick="auth()">Enviar</button>
+
+			<script type="text/javascript">
+				function auth() {
+					if (document.getElementByName("name") == process.env.FAKE_USER && document.getElementByName("email") == process.env.FAKE_EMAIL && document.getElementByName("pwd") == process.env.FAKE_PWD) {
+					res.redirect('contactos');
+					} else {
+						alert("Error: Usuario no permitido.");
+					};
+				};
+			</script>
 		</form>
 	</div>
 </body>
