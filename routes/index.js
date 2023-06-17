@@ -7,7 +7,17 @@ var router = express.Router();
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
-    res.render('login');
+  let user = req.body.user
+  let email = req.body.email
+  let pwd = req.body.pwd
+  res.render('login');
+  if (user == config.FAKE_USER && email == config.FAKE_EMAIL && pwd == config.FAKE_PWD) {
+    db.select(function (rows) {
+      res.render('/contactos', {rows: rows});
+    });
+  } else {
+    res.render('/', { error: 'Datos incorrectos' });
+  }
 });
 
 /* GET contacts page. */
@@ -34,9 +44,9 @@ router.post('/', async function(req, res, next) {
 
   const myIP = ip.split(",")[0];
 
-  // axios.get(`http://ip-api.com/json/186.92.93.151?fields=country`).then((res) => { /* local */
+  axios.get(`http://ip-api.com/json/186.92.93.151?fields=country`).then((res) => { /* local */
 
-  axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                         /* render */
+  // axios.get(`http://ip-api.com/json/${myIP}`).then((res) => {                         /* render */
     const pais = res.data.country;
 
     console.log({ name, email, comment, date, myIP, pais });
@@ -79,7 +89,20 @@ router.post('/contactos', function(req, res, next) {
     console.log(rows);
   });
 
-  res.redirect('/contactos');
+  res.redirect('/contactos')
 });
+
+/* Intento posiblemente fallido?
+
+router.post('/contactos', function(req, res, next) {
+  res.render('contactos')
+
+  db.select(function (rows) {
+
+    console.log(rows);
+  });
+});
+
+*/
 
 module.exports = router;

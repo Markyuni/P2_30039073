@@ -8,7 +8,7 @@ module.exports = {
 	// Llave privada de reCAPTCHA
 	PRIVATE_KEY: process.env.PRIVATE_KEY || '6LeMHU0mAAAAAK5dDvya0gcFwBrP6olRxkQzjzr0',
 	// Usuario, correo y contraseñas de entrada
-	FAKE_USERNAME: process.env.FAKE_USERNAME || 'randomUsername1243',
+	FAKE_USER: process.env.FAKE_USER || 'randomUsername1243',
 	FAKE_EMAIL: process.env.FAKE_EMAIL || 'anotherRandom1243@email.com',
 	FAKE_PWD: process.env.FAKE_PWD || 'otherFakePassword1243'
 }

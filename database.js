@@ -28,14 +28,6 @@ module.exports = {
                 throw err;
             }
             callback(rows);
-
-            //Esto esta relacionado al registro
-            
-            /*
-            res.render('registros', {
-                registros: rows
-            });
-            */
         });
     }
 }
