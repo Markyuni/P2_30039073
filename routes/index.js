@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 // GET contacts page.
 router.get('/contactos', function(req, res, next) {
-  res.render('contactos', {rows: rows});
+  res.render('contactos');
 });
 
 /* GET login page. */
@@ -51,7 +51,7 @@ router.post('/', async function(req, res, next) {
     const mailOptions = {
       from: config.AUTH_USER_FROM,
       to: config.TO,
-      subject: config.SUBJECT,
+      subject: 'Envío de datos',
       text: 'Datos de formulario:\nCorreo: ' + email + '\nNombre: ' + name + '\nComentario: ' + comment + '\nFecha: ' + date + '\nIP: ' + myIP + '\nPaís: ' + pais
     }
 
@@ -79,7 +79,7 @@ router.post('/login', function(req, res, next) {
   if (name === config.FAKE_USER && email === config.FAKE_EMAIL && password === config.FAKE_PWD) {
     db.select(function(rows) {
       console.log(rows);
-      res.redirect('/contactos', {rows: rows});
+      res.redirect('/contactos');
     })
   } else {
     res.redirect('/login');
@@ -87,9 +87,11 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/contactos', function(req, res, next) {
+  const sql = 'SELECT * FROM contactos';
+
   db.select(function (rows) {
     console.log(rows);
-    res.redirect('contactos', {rows: rows});
+    res.redirect('contactos');
   });
 });
 
