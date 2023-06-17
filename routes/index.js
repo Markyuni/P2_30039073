@@ -5,14 +5,21 @@ const axios = require('axios');
 const nodemailer = require('nodemailer');
 var router = express.Router();
 
-/* GET login page. */
+// GET login page.
+// La pagina de login es la pagina principal
 router.get('/', function(req, res, next) {
   let user = req.body.user
   let email = req.body.email
   let pwd = req.body.pwd
   res.render('login');
+
+  // Toma los datos del cuerpo de la pagina y los compara con los datos guardados en las variables de entorno
+  // Estos datos son de prueba y seran cambiados por variables de entorno en Render al terminar
+  // Dichos datos de prueba estan en config.js, por si preguntas
   if (user == config.FAKE_USER && email == config.FAKE_EMAIL && pwd == config.FAKE_PWD) {
     db.select(function (rows) {
+      // Se supone que al verificar que los datos sean correctos, deberia renderizarse la pagina de contactos
+      // Pero no se renderiza, y no se por que
       res.render('/contactos', {rows: rows});
     });
   } else {
@@ -20,19 +27,14 @@ router.get('/', function(req, res, next) {
   }
 });
 
-/* GET contacts page. */
+// GET contacts page.
 router.get('/contactos', function(req, res, next) {
   res.render('contactos');
 });
 
 /* GET home page. */
 router.get('/index', function(req, res, next) {
-  res.render('index', {
-    title: 'Datos del Estudiante',
-    nombre: 'Jesús', apellido: 'Ramírez',
-    cedula: '30.039.073',
-    seccion: '1'
-  });
+  res.render('index');
 });
 
 router.post('/', async function(req, res, next) {
@@ -88,21 +90,7 @@ router.post('/contactos', function(req, res, next) {
   db.select(function (rows) {
     console.log(rows);
   });
-
-  res.redirect('/contactos')
+  res.redirect('/');
 });
-
-/* Intento posiblemente fallido?
-
-router.post('/contactos', function(req, res, next) {
-  res.render('contactos')
-
-  db.select(function (rows) {
-
-    console.log(rows);
-  });
-});
-
-*/
 
 module.exports = router;
