@@ -59,4 +59,9 @@ hr {
 	display: block;
 	font-weight: bold;
 	margin: 6% 25%;
-	padding: 25px;}
+	padding: 25px;
+}
+
+.g_id_signin {
+	margin: 0% 30%;
+}
