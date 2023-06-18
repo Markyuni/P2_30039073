@@ -22,7 +22,7 @@ p {
 	color: #142b4f;
 }
 
-table, thead {
+table {
 	border-collapse: separate;
 	border-spacing: 0;
 	width: 100%;
@@ -32,7 +32,11 @@ tbody {
 	background: #E8E8ED;
 	font-size: 14px;
 	text-align: center;
+}
+
+td {
 	border: 1px solid #15181c;
+	color: #142b4f
 }
 
 th {

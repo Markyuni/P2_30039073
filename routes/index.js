@@ -42,18 +42,18 @@ router.post('/', async function(req, res, next) {
     db.insert(name, email, comment, date, myIP, pais);
 
     const transporter = nodemailer.createTransport({
-      host: config.HOST,
+      host: process.env.HOST,
       port: 465,
       secure: true,
       auth: {
-        user: config.AUTH_USER_FROM,
-        pass: config.AUTH_PASS
+        user: process.env.AUTH_USER_FROM,
+        pass: process.env.AUTH_PASS
       }
     });
 
     const mailOptions = {
-      from: config.AUTH_USER_FROM,
-      to: config.TO,
+      from: process.env.AUTH_USER_FROM,
+      to: process.env.TO,
       subject: 'Envío de datos',
       text: 'Datos de formulario:\nCorreo: ' + email + '\nNombre: ' + name + '\nComentario: ' + comment + '\nFecha: ' + date + '\nIP: ' + myIP + '\nPaís: ' + pais
     }
@@ -79,7 +79,7 @@ router.post('/login', function(req, res, next) {
 
   console.log({ name, email, password });
 
-  if (name === config.FAKE_USER && email === config.FAKE_EMAIL && password === config.FAKE_PWD) {
+  if (name === process.env.FAKE_USER && email === process.env.FAKE_EMAIL && password === process.env.FAKE_PWD) {
     db.select(function(rows) {
       console.log(rows);
       res.redirect('/contactos');
@@ -91,7 +91,7 @@ router.post('/login', function(req, res, next) {
 
 router.post('/contactos', function(req, res, next) {
 
-  db.select(function (rows) {
+ process.env db.select(function (rows) {
     console.log(rows);
     res.redirect('contactos');
   });
