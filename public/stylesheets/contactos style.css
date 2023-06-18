@@ -26,11 +26,17 @@ table, thead {
 	border-collapse: separate;
 	border-spacing: 0;
 	width: 100%;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
 }
 
-th, td {
+tbody {
+	background: #E8E8ED;
+	font-size: 14px;
+	text-align: center;
+	border: 1px solid #15181c;
+}
+
+th {
+	padding: 4px;
 	background-color: #142b4f;
 	border: 1px solid #15181c;
 }
