@@ -91,7 +91,7 @@ router.post('/login', function(req, res, next) {
 
 router.post('/contactos', function(req, res, next) {
 
- process.env db.select(function (rows) {
+  db.select(function (rows) {
     console.log(rows);
     res.redirect('contactos');
   });
