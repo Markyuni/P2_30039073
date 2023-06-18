@@ -46,12 +46,18 @@
 		</thead>
 		<!-- La idea es meter los registros de la DB aqui -->
 		<tbody>
+			<% data.forEach(function(row) { %>
 			<tr>
 				<td><%= row.id  %></td>
 				<td><%= row.name %></td>
 				<td><%= row.email %></td>
+				<td><%= row.comment %></td>
+				<td><%= row.date %></td>
+				<td><%= row.myIP %></td>
+				<td><%= row.pais %></td>
 		<!-- Los demas seran agregados pronto -->
 			</tr>
+			<% }); %>
 		</tbody>
 	</table>
 </body>

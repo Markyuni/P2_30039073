@@ -12,7 +12,10 @@ router.get('/', function(req, res, next) {
 
 // GET contacts page.
 router.get('/contactos', function(req, res, next) {
-  res.render('contactos');
+  db.select((rows) => {
+    console.log(rows);
+    res.render("contactos", { data: rows });
+  });
 });
 
 /* GET login page. */
@@ -87,7 +90,6 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/contactos', function(req, res, next) {
-  const sql = 'SELECT * FROM contactos';
 
   db.select(function (rows) {
     console.log(rows);
