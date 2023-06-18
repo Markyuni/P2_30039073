@@ -43,8 +43,8 @@ router.post('/', async function(req, res, next) {
 
     const transporter = nodemailer.createTransport({
       host: process.env.HOST,
-      port: process.env.PORT,
-      secure: process.env.SECURE,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.AUTH_USER_FROM,
         pass: process.env.AUTH_PASS
